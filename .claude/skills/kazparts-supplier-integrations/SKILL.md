@@ -1,4 +1,4 @@
-# KazParts Supplier Integrations
+# Auto Parts Supplier Integrations
 
 Use this skill when implementing supplier search, availability sync, supplier order automation, or adapter interfaces.
 

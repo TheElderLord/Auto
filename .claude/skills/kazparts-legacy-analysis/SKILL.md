@@ -1,4 +1,4 @@
-# KazParts Legacy Analysis
+# Auto Parts Legacy Analysis
 
 Use this skill when implementation requires understanding behavior from the legacy PHP/MySQL project.
 

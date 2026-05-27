@@ -1,40 +1,35 @@
-# KazParts Rebuild
+# Auto Parts Platform — Rebuild
 
-New project workspace for rebuilding the KazParts auto-parts ecommerce and admin platform.
+A clean TypeScript rebuild of the legacy PHP auto-parts ecommerce and admin platform.
 
 The legacy PHP project remains in `../testparts` and should be used as a feature and data reference, not as the foundation for new code.
 
-## Current Scaffold
+## Apps & Packages
 
-- `apps/api` - NestJS API application
-- `apps/web` - Next.js storefront and admin frontend
-- `apps/worker` - background worker entrypoint for imports, sync, and notifications
-- `packages/contracts` - shared API/domain response types
-- `packages/db` - future Prisma schema, migrations, and database helpers
-- `packages/ui` - future shared UI components
-- `packages/config` - future shared config/env validation
-- `docker-compose.yml` - local PostgreSQL and Redis services
-- `.env.example` - local environment template
+- `apps/api` — NestJS API
+- `apps/web` — Next.js storefront and admin frontend
+- `apps/worker` — background worker for imports, sync, and notifications
+- `packages/contracts` — shared API/domain response types
+- `packages/db` — Prisma schema, migrations, and database helpers
+- `packages/ui` — shared UI components
+- `packages/config` — shared config/env validation
+- `docker-compose.yml` — local PostgreSQL and Redis
+- `.env.example` — local environment template
 
 ## Architecture Docs
 
-- `docs/handoffs/claude-context.md` - implementation handoff for Claude Code
-- `docs/architecture/overview.md` - target architecture and boundaries
-- `docs/architecture/backend-structure.md` - NestJS structure rules
-- `docs/architecture/data-model-notes.md` - legacy-to-new data model notes
-- `docs/implementation/phases.md` - phased delivery plan
-- `docs/implementation/next-claude-task.md` - next implementation task
-- `docs/legacy-analysis/project-summary.md` - legacy system summary
-
-## Claude Skills
-
-Repo-local Claude skills live in `.claude/skills`. They describe how Claude should approach legacy analysis, architecture work, data modeling, price imports, supplier integrations, and frontend UI implementation.
+- `docs/handoffs/claude-context.md` — implementation handoff
+- `docs/architecture/overview.md` — target architecture and boundaries
+- `docs/architecture/backend-structure.md` — NestJS structure rules
+- `docs/architecture/data-model-notes.md` — data model notes
+- `docs/implementation/phases.md` — phased delivery plan
+- `docs/legacy-analysis/project-summary.md` — legacy system summary
 
 ## Requirements
 
 - Node.js 20+
 - npm
-- Docker, for local PostgreSQL and Redis
+- Docker (for local PostgreSQL and Redis)
 
 ## Local Setup
 
@@ -42,14 +37,12 @@ Repo-local Claude skills live in `.claude/skills`. They describe how Claude shou
 cp .env.example .env
 npm install
 docker compose up -d
+npm run db:migrate
+npm run db:seed
 npm run dev:api
 npm run dev:web
 ```
 
-The API listens on `http://localhost:3000` by default. Health check:
+API: `http://localhost:3000` — health check: `curl http://localhost:3000/api/health`
 
-```bash
-curl http://localhost:3000/api/health
-```
-
-The web app listens on `http://localhost:3001` by default.
+Web: `http://localhost:3001`

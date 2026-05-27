@@ -1,6 +1,6 @@
 # Claude Code Instructions
 
-This is the new KazParts rebuild workspace.
+This is the new auto-parts platform rebuild workspace.
 
 ## Start Here
 
@@ -14,12 +14,12 @@ Before implementation work, read:
 
 Use these repo-local skills when the task matches their trigger:
 
-- `.claude/skills/kazparts-legacy-analysis/SKILL.md` - understanding old PHP/MySQL behavior
-- `.claude/skills/kazparts-architecture-implementation/SKILL.md` - backend, worker, package, and infrastructure implementation
-- `.claude/skills/kazparts-data-modeling/SKILL.md` - Prisma schema, migrations, seed data, and legacy mapping
-- `.claude/skills/kazparts-price-imports/SKILL.md` - CSV/TXT/XLS/XLSX import pipeline
-- `.claude/skills/kazparts-supplier-integrations/SKILL.md` - supplier API adapters and automation
-- `.claude/skills/kazparts-frontend-ui/SKILL.md` - storefront and admin frontend work
+- `.claude/skills/legacy-analysis/SKILL.md` - understanding old PHP/MySQL behavior
+- `.claude/skills/architecture-implementation/SKILL.md` - backend, worker, package, and infrastructure implementation
+- `.claude/skills/data-modeling/SKILL.md` - Prisma schema, migrations, seed data, and legacy mapping
+- `.claude/skills/price-imports/SKILL.md` - CSV/TXT/XLS/XLSX import pipeline
+- `.claude/skills/supplier-integrations/SKILL.md` - supplier API adapters and automation
+- `.claude/skills/frontend-ui/SKILL.md` - storefront and admin frontend work
 
 ## Orientation
 
@@ -48,7 +48,7 @@ If the repository later establishes a more specific stack, follow the repository
 
 ## Domain Summary
 
-KazParts is an auto-parts ecommerce platform with a large manager/admin surface.
+Auto Parts is an auto-parts ecommerce platform with a large manager/admin surface.
 
 Core workflows:
 

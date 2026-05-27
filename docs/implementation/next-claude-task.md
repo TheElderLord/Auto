@@ -60,7 +60,7 @@ These models are intentionally small. Expand only when implementing a real workf
 
 - Do not modify `../testparts`.
 - Do not copy secrets from legacy config.
-- Keep changes inside `kazparts-rebuild`.
+- Keep changes inside `this project directory`.
 - Prefer boring, explicit code over magic.
 - Document any setup requirement in `README.md`.
 

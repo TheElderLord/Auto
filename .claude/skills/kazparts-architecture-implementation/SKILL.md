@@ -1,4 +1,4 @@
-# KazParts Architecture Implementation
+# Auto Parts Architecture Implementation
 
 Use this skill when adding or restructuring backend, worker, package, or shared infrastructure code.
 

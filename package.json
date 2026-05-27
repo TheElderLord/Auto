@@ -1,8 +1,8 @@
 {
-  "name": "kazparts-rebuild",
+  "name": "autoparts-rebuild",
   "private": true,
   "version": "0.1.0",
-  "description": "Clean rebuild of the KazParts auto-parts ecommerce and admin platform.",
+  "description": "Clean rebuild of the auto-parts ecommerce and admin platform.",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -16,6 +16,9 @@
     "dev:api": "npm run build:packages && npm run start:dev -w @kazparts/api",
     "dev:web": "npm run dev -w @kazparts/web",
     "dev:worker": "npm run start:dev -w @kazparts/worker",
+    "db:generate": "npm run generate -w @kazparts/db",
+    "db:migrate": "npm run migrate:dev -w @kazparts/db",
+    "db:seed": "npm run seed -w @kazparts/db",
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
   }

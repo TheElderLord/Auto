@@ -1,2 +1,2 @@
-export const uiPackage = '@kazparts/ui';
+export const uiPackage = 'ui';
 

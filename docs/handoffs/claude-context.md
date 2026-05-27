@@ -4,7 +4,7 @@ Use this file as the main starting point when Claude Code begins implementation 
 
 ## Current State
 
-The repository is a new monorepo scaffold for rebuilding KazParts.
+The repository is a new monorepo scaffold for rebuilding Auto Parts.
 
 Created apps:
 
@@ -49,12 +49,12 @@ Read in this order:
 
 Claude should use repo-local skills from `.claude/skills` when a task matches their trigger:
 
-- `kazparts-legacy-analysis`
-- `kazparts-architecture-implementation`
-- `kazparts-data-modeling`
-- `kazparts-price-imports`
-- `kazparts-supplier-integrations`
-- `kazparts-frontend-ui`
+- `legacy-analysis`
+- `architecture-implementation`
+- `data-modeling`
+- `price-imports`
+- `supplier-integrations`
+- `frontend-ui`
 
 ## Immediate Implementation Direction
 
@@ -70,7 +70,7 @@ Do Phase 0 first:
 
 - Do not modify legacy app files in `../testparts`.
 - Do not copy legacy secrets.
-- Keep new code inside `kazparts-rebuild`.
+- Keep new code inside `this project directory`.
 - Keep module boundaries clean.
 - Use transactions for future inventory/cart/order workflows.
 - Prefer explicit, testable code.

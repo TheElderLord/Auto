@@ -190,6 +190,102 @@ h1 {
   line-height: 1.45;
 }
 
+/* ─── Search states ──────────────────────────────────────────────────────── */
+
+.results-meta {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.search-error {
+  margin: 0 0 24px;
+  padding: 12px 16px;
+  border: 1px solid #f5c2bc;
+  border-radius: 6px;
+  background: #fff5f4;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.search-empty {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ─── Results table ──────────────────────────────────────────────────────── */
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.results-table th {
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.results-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.results-table tbody tr:hover td {
+  background: var(--surface-strong);
+}
+
+.article-cell code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  color: var(--primary);
+}
+
+/* ─── Search hints ───────────────────────────────────────────────────────── */
+
+.search-hint {
+  margin-top: 8px;
+}
+
+.search-hint > p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hint-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hint-chip {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.hint-chip:hover {
+  border-color: var(--primary);
+  background: var(--surface-strong);
+}
+
 @media (max-width: 640px) {
   .app-header {
     align-items: flex-start;

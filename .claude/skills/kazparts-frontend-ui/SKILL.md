@@ -1,4 +1,4 @@
-# KazParts Frontend UI
+# Auto Parts Frontend UI
 
 Use this skill when building storefront or admin UI in `apps/web`.
 

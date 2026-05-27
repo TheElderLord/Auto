@@ -1,4 +1,4 @@
-# KazParts Data Modeling
+# Auto Parts Data Modeling
 
 Use this skill when designing Prisma models, migrations, seed data, or migration scripts from the legacy database.
 

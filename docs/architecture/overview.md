@@ -1,6 +1,6 @@
 # Architecture Overview
 
-KazParts Rebuild is a clean replacement for the legacy PHP auto-parts ecommerce/admin platform.
+Auto Parts Platform is a clean replacement for the legacy PHP auto-parts ecommerce/admin platform.
 
 The target architecture is a modular monolith with clear internal boundaries. This keeps development fast while preserving a path to split workers, integrations, or search services later if scale requires it.
 

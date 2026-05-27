@@ -18,7 +18,7 @@ describe('AppController', () => {
     it('returns service health', () => {
       expect(appController.getHealth()).toEqual({
         status: 'ok',
-        service: 'kazparts-api'
+        service: 'api'
       });
     });
   });

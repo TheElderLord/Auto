@@ -3,7 +3,7 @@ import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'KazParts',
+  title: 'Auto Parts',
   description: 'Auto-parts ecommerce and admin platform rebuild'
 };
 
@@ -17,7 +17,7 @@ export default function RootLayout({
       <body>
         <header className="app-header">
           <Link className="brand" href="/">
-            KazParts
+            Auto Parts
           </Link>
           <nav className="nav">
             <Link href="/">Storefront</Link>

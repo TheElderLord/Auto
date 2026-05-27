@@ -1,4 +1,4 @@
-# KazParts Price Imports
+# Auto Parts Price Imports
 
 Use this skill when implementing price-list upload, parsing, validation, mapping, import jobs, or import history.
 

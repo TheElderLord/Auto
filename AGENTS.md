@@ -1,6 +1,6 @@
 # Agent Instructions
 
-This directory is the clean rebuild workspace for the KazParts auto-parts ecommerce and admin platform.
+This directory is the clean rebuild workspace for the auto-parts ecommerce and admin platform.
 
 ## Project Context
 
