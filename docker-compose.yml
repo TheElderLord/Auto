@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kazparts-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: kazparts
+      POSTGRES_USER: kazparts
+      POSTGRES_PASSWORD: kazparts
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: kazparts-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres-data:
+

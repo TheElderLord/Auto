@@ -1,0 +1,32 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'KazParts',
+  description: 'Auto-parts ecommerce and admin platform rebuild'
+};
+
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <header className="app-header">
+          <Link className="brand" href="/">
+            KazParts
+          </Link>
+          <nav className="nav">
+            <Link href="/">Storefront</Link>
+            <Link href="/admin">Admin</Link>
+          </nav>
+        </header>
+        <main>{children}</main>
+      </body>
+    </html>
+  );
+}
+
