@@ -1,12 +1,31 @@
 import { Suspense } from 'react';
 import { SearchForm } from './components/SearchForm';
+import { AddToCartButton } from './components/AddToCartButton';
+
+interface StockEntry {
+  stockItemId: string;
+  storageId: string;
+  storageName: string;
+  officeName: string;
+  qty: number;
+  price: number;
+  currency: string;
+  deliveryDays: number;
+}
+
+interface Availability {
+  inStock: boolean;
+  lowestPrice: number | null;
+  currency: string;
+  entries: StockEntry[];
+}
 
 interface ProductSummary {
   id: string;
   article: string;
   name: string;
-  brand: { id: string; name: string; slug: string };
-  primaryImage: { url: string } | null;
+  brand: { name: string };
+  availability: Availability;
 }
 
 interface SearchResults {
@@ -22,6 +41,16 @@ async function fetchResults(q: string): Promise<SearchResults> {
   });
   if (!res.ok) throw new Error(`API error ${res.status}`);
   return res.json() as Promise<SearchResults>;
+}
+
+function formatPrice(price: number, currency: string) {
+  return new Intl.NumberFormat('ru-KZ', { style: 'currency', currency, maximumFractionDigits: 0 }).format(price);
+}
+
+function cheapestInStockEntry(entries: StockEntry[]): StockEntry | null {
+  const inStock = entries.filter((e) => e.qty > 0);
+  if (inStock.length === 0) return null;
+  return inStock.reduce((a, b) => (a.price <= b.price ? a : b));
 }
 
 export default async function StorefrontPage({
@@ -69,18 +98,39 @@ export default async function StorefrontPage({
                 <th>Article</th>
                 <th>Name</th>
                 <th>Brand</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              {results.results.map((p) => (
-                <tr key={p.id}>
-                  <td className="article-cell">
-                    <code>{p.article}</code>
-                  </td>
-                  <td>{p.name}</td>
-                  <td>{p.brand.name}</td>
-                </tr>
-              ))}
+              {results.results.map((p) => {
+                const entry = cheapestInStockEntry(p.availability.entries);
+                return (
+                  <tr key={p.id}>
+                    <td className="article-cell"><code>{p.article}</code></td>
+                    <td>{p.name}</td>
+                    <td>{p.brand.name}</td>
+                    <td className="price-cell">
+                      {p.availability.lowestPrice != null
+                        ? formatPrice(p.availability.lowestPrice, p.availability.currency)
+                        : <span className="muted">—</span>}
+                    </td>
+                    <td>
+                      <span className={`stock-badge ${p.availability.inStock ? 'in-stock' : 'out-of-stock'}`}>
+                        {p.availability.inStock ? 'In stock' : 'Out of stock'}
+                      </span>
+                    </td>
+                    <td>
+                      {entry && (
+                        <Suspense>
+                          <AddToCartButton stockItemId={entry.stockItemId} />
+                        </Suspense>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </>
@@ -91,9 +141,7 @@ export default async function StorefrontPage({
           <p>Try an article number to get started:</p>
           <div className="hint-chips">
             {['04465-33450', 'D1212', 'RLL10902', 'W712/83'].map((ex) => (
-              <a key={ex} href={`/?q=${encodeURIComponent(ex)}`} className="hint-chip">
-                {ex}
-              </a>
+              <a key={ex} href={`/?q=${encodeURIComponent(ex)}`} className="hint-chip">{ex}</a>
             ))}
           </div>
         </div>

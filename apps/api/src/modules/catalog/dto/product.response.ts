@@ -17,12 +17,31 @@ export interface ProductImageDto {
   sortOrder: number;
 }
 
+export interface StockEntryDto {
+  storageId: string;
+  storageName: string;
+  officeId: string;
+  officeName: string;
+  qty: number;
+  price: number;
+  currency: string;
+  deliveryDays: number;
+}
+
+export interface AvailabilityDto {
+  inStock: boolean;
+  lowestPrice: number | null;
+  currency: string;
+  entries: StockEntryDto[];
+}
+
 export interface ProductSummaryDto {
   id: string;
   article: string;
   name: string;
   brand: BrandDto;
   primaryImage: ProductImageDto | null;
+  availability: AvailabilityDto;
 }
 
 export interface ProductDetailDto extends ProductSummaryDto {
